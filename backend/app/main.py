@@ -14,7 +14,7 @@ from .config import settings, STATIC_DIR
 from .db import init_db
 from .scheduler import start_scheduler, stop_scheduler
 from .security import SecurityHeadersMiddleware, rate_limit_middleware
-from .api import sourcing, products, tasks, settings as settings_api, dashboard, auth
+from .api import sourcing, products, tasks, settings as settings_api, dashboard, auth, exports
 
 
 @asynccontextmanager
@@ -52,6 +52,7 @@ app.include_router(sourcing.router)
 app.include_router(products.router)
 app.include_router(tasks.router)
 app.include_router(settings_api.router)
+app.include_router(exports.router)
 
 
 @app.get("/api/health")
